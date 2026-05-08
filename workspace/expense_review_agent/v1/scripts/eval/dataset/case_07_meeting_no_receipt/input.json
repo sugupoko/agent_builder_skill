@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0007",
+  "applicant_name": "森田四郎",
+  "employee_id": "EMP-2024-002",
+  "manager_employee_id": "EMP-2024-001",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-06",
+  "category": "meeting",
+  "amount_jpy": 4200,
+  "store_name": "ドトール 新橋店",
+  "counterparty": null,
+  "participants_count": 4,
+  "description": "プロジェクト打ち合わせ",
+  "receipt_url": null,
+  "ocr_text": ""
+}

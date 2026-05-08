@@ -1,0 +1,15 @@
+name: エッジ 英語転送
+description: 英語問い合わせ → 英語担当転送テンプレ（v1 スコープ）
+expected:
+  category: other
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: []
+  order_nos_must_include: []
+  body_must_include: ["English support team"]
+  body_must_not_include: ["お世話になっております。"]
+  apology_required: false
+  needs_supervisor: false
+  lang_expected: en
+tags: [edge, english]
+edge_case: true

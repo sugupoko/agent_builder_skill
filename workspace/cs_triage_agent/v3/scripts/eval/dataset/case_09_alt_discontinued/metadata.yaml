@@ -1,0 +1,13 @@
+name: 代替品 廃番先回り（SHA-M6-20-N）
+description: 廃番品の後継提示が「先回り」できるか
+expected:
+  category: alternative
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M6-20-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["同等品です"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, discontinued, proactive]

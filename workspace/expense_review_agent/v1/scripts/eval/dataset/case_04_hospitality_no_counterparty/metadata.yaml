@@ -1,0 +1,9 @@
+name: 接待 相手先空欄（needs_fix 期待）
+description: 接待 1 人 4,000 円で単価規程内、ただし相手先未記入
+expected:
+  decision: needs_fix
+  rule_violations_must_include: ["counterparty_required"]
+  feedback_must_include: ["相手先", "再申請"]
+  feedback_must_not_include: ["絶対に", "ルール違反"]
+  suggested_fixes_min: 1
+tags: [typical, needs_fix, hospitality]

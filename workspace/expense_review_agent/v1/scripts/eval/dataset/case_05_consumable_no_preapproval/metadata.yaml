@@ -1,0 +1,8 @@
+name: 消耗品 5,000 円超で事前申請なし（needs_fix 期待）
+description: モニター 12,800 円、事前申請番号未記入
+expected:
+  decision: needs_fix
+  rule_violations_must_include: ["consumable_preapproval_required"]
+  feedback_must_include: ["事前申請"]
+  suggested_fixes_min: 1
+tags: [typical, needs_fix, consumable]

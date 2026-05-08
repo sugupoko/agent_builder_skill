@@ -1,0 +1,34 @@
+# 過去 90 日の申請履歴（重複検出用）
+# キー: 配列、各要素は {applicant_id, submitted_at, store_name, amount_jpy, category, decision, claim_id}
+
+- claim_id: CLAIM-2026-04-1234
+  applicant_id: EMP-2024-001
+  submitted_at: "2026-04-15"
+  store_name: 銀座 寿司 はる
+  amount_jpy: 28000
+  category: hospitality
+  decision: auto_approve
+
+- claim_id: CLAIM-2026-04-1500
+  applicant_id: EMP-2024-001
+  submitted_at: "2026-04-22"
+  store_name: スターバックス 渋谷
+  amount_jpy: 1200
+  category: meeting
+  decision: auto_approve
+
+- claim_id: CLAIM-2026-03-0980
+  applicant_id: EMP-2024-002
+  submitted_at: "2026-03-18"
+  store_name: 東京駅 新幹線
+  amount_jpy: 18500
+  category: travel
+  decision: auto_approve
+
+- claim_id: CLAIM-2026-04-2200
+  applicant_id: EMP-2024-003
+  submitted_at: "2026-04-10"
+  store_name: 紀伊國屋書店
+  amount_jpy: 4500
+  category: training
+  decision: auto_approve

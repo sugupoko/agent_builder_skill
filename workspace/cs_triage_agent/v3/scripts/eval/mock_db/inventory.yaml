@@ -1,0 +1,32 @@
+# 在庫 DB モックフィクスチャ
+# キー: SKU、値: 在庫数 / 出荷可能日 / 拠点
+
+SHA-M6-20-N:
+  stock_qty: 1234
+  ship_eta_days: 1
+  warehouse: TKO-01
+
+SHA-M8-25-N:
+  stock_qty: 0
+  ship_eta_days: 14
+  warehouse: TKO-02
+
+SHA-M6-20-N2:   # SHA-M6-20-N の後継品
+  stock_qty: 500
+  ship_eta_days: 1
+  warehouse: TKO-01
+
+BLR-25-SUS304:
+  stock_qty: 80
+  ship_eta_days: 3
+  warehouse: OSA-01
+
+BLR-25-SUS316:
+  stock_qty: 22
+  ship_eta_days: 5
+  warehouse: OSA-01
+
+PIN-D5-L20:
+  stock_qty: 9999
+  ship_eta_days: 1
+  warehouse: TKO-01

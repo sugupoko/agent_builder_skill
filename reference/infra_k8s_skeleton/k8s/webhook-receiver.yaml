@@ -1,0 +1,74 @@
+# <agent_name> — webhook-receiver (FastAPI、trigger 受信して Redis Queue に投入)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <agent_name>-webhook-receiver
+  namespace: <namespace>
+spec:
+  replicas: 2  # HA、即応必須
+  selector:
+    matchLabels:
+      app: <agent_name>
+      component: webhook-receiver
+  template:
+    metadata:
+      labels:
+        app: <agent_name>
+        component: webhook-receiver
+    spec:
+      containers:
+      - name: receiver
+        image: <image_registry>/<agent_name>-webhook:v1.0.0
+        command: ["uvicorn", "webhook:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+        env:
+        - name: REDIS_HOST
+          value: redis.<namespace>.svc.cluster.local
+        - name: REDIS_QUEUE
+          value: <agent_name>:queue
+        - name: WEBHOOK_HMAC_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: <agent_name>-secrets
+              key: webhook_hmac_secret
+        ports: [{containerPort: 8000}]
+        resources:
+          requests: {cpu: 100m, memory: 256Mi}
+          limits: {cpu: 500m, memory: 512Mi}
+        livenessProbe:
+          httpGet: {path: /health, port: 8000}
+          initialDelaySeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: <agent_name>-webhook-receiver
+  namespace: <namespace>
+spec:
+  selector:
+    app: <agent_name>
+    component: webhook-receiver
+  ports: [{port: 80, targetPort: 8000}]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: <agent_name>-webhook
+  namespace: <namespace>
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts: [<webhook_host>]
+    secretName: <agent_name>-webhook-tls
+  rules:
+  - host: <webhook_host>
+    http:
+      paths:
+      - path: /webhook
+        pathType: Prefix
+        backend:
+          service:
+            name: <agent_name>-webhook-receiver
+            port: {number: 80}

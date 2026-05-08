@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0011",
+  "applicant_name": "井上七郎",
+  "employee_id": "EMP-2024-002",
+  "manager_employee_id": "EMP-2024-001",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-02-15",
+  "category": "meeting",
+  "amount_jpy": 3200,
+  "store_name": "コメダ珈琲 品川店",
+  "counterparty": null,
+  "participants_count": 3,
+  "description": "プロジェクト打ち合わせ（領収書発見遅延）",
+  "receipt_url": "https://attachments.example.com/receipt-011.jpg",
+  "ocr_text": "コメダ珈琲 品川店 2026/02/15 ¥3,200 3名"
+}

@@ -1,0 +1,37 @@
+# 社員マスタモック
+
+EMP-2024-001:
+  department: 営業部
+  grade: M2
+  approval_limit_jpy: 30000
+  manager_employee_id: EMP-2020-010
+
+EMP-2024-002:
+  department: 営業部
+  grade: 一般
+  approval_limit_jpy: 0
+  manager_employee_id: EMP-2024-001
+
+EMP-2024-003:
+  department: 開発部
+  grade: M1
+  approval_limit_jpy: 10000
+  manager_employee_id: EMP-2020-020
+
+EMP-2024-004:
+  department: 開発部
+  grade: 一般
+  approval_limit_jpy: 0
+  manager_employee_id: EMP-2024-003
+
+EMP-2024-005:
+  department: 経営企画
+  grade: 部長
+  approval_limit_jpy: 200000
+  manager_employee_id: null
+
+EMP-2020-010:
+  department: 営業部
+  grade: 部長
+  approval_limit_jpy: 200000
+  manager_employee_id: EMP-2024-005

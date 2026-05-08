@@ -1,0 +1,13 @@
+name: 代替品 寸法互換
+description: 同等品（材質違いも可）提示
+expected:
+  category: alternative
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["BLR-25-SUS304"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["なし"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, dim_compat]

@@ -1,0 +1,49 @@
+# 機密情報 (commit 厳禁)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+**/secrets.yaml
+**/*-secrets.yaml
+
+# プロジェクトの作業データ・実行時アーティファクト
+workspace/*/v*/scripts/data/
+workspace/*/v*/scripts/eval/results/
+workspace/*/v*/scripts/output/
+workspace/*/v*/scripts/logs/
+workspace/*/v*/scripts/.opt_state.yaml
+workspace/*/v*/scripts/.env
+
+# 旧バックアップ（コミット対象外）
+workspace/_old/
+
+# ログ・DB
+*.log
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.hypothesis/
+.coverage
+*.egg-info/
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Claude Code
+.claude/settings.local.json

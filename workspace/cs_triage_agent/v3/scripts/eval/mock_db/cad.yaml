@@ -1,0 +1,19 @@
+# CAD ライブラリモックフィクスチャ
+
+SHA-M6-20-N:
+  cad_url: "https://cad.internal.example.com/sha/m6-20-n.step"
+  pdf_url: "https://cad.internal.example.com/sha/m6-20-n.pdf"
+  format: ["STEP", "PDF"]
+  size_kb: 245
+
+SHA-M8-25-N:
+  cad_url: "https://cad.internal.example.com/sha/m8-25-n.step"
+  pdf_url: "https://cad.internal.example.com/sha/m8-25-n.pdf"
+  format: ["STEP", "PDF"]
+  size_kb: 261
+
+BLR-25-SUS304:
+  cad_url: "https://cad.internal.example.com/blr/25-sus304.step"
+  pdf_url: "https://cad.internal.example.com/blr/25-sus304.pdf"
+  format: ["STEP", "PDF"]
+  size_kb: 312

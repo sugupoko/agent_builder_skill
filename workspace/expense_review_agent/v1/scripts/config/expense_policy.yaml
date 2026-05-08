@@ -1,0 +1,74 @@
+# Expense Review Agent v1 — メイン設定
+# 経理マネージャ（中村）が直接編集する想定。SE レビューは新規ルール追加・LLM プロンプト変更時のみ。
+
+slug: expense_review
+
+# ==========================================================
+# モデル選定
+# ==========================================================
+models:
+  classify_gray: claude-sonnet-4-6
+  draft_decision: claude-sonnet-4-6
+  draft_decision_lite: claude-haiku-4-5-20251001
+  reflect: claude-sonnet-4-6
+  extract_assist: claude-haiku-4-5-20251001
+
+# ==========================================================
+# 経費カテゴリ別ポリシー
+# ==========================================================
+policies:
+  travel:
+    daily_limit_jpy: 30000
+    receipt_required_above_jpy: 0
+    counterparty_required: false
+  hospitality:
+    per_person_limit_jpy: 5000
+    receipt_required_above_jpy: 0
+    counterparty_required: true
+    participants_required: true
+  meeting:
+    per_person_limit_jpy: 1500
+    receipt_required_above_jpy: 0
+    counterparty_required: false
+  consumable:
+    pre_approval_above_jpy: 5000
+    receipt_required_above_jpy: 0
+  communication:
+    receipt_required_above_jpy: 0
+  training:
+    receipt_required_above_jpy: 0
+    manager_approval_required: true
+  misc:
+    receipt_required_above_jpy: 0
+
+# ==========================================================
+# 金額上限超で上長承認が必要となる閾値
+# ==========================================================
+approval_required_above_jpy:
+  general: 30000
+  travel: 50000
+  hospitality: 30000
+
+# ==========================================================
+# 期限・重複検出
+# ==========================================================
+deadline_days: 60                    # 領収書日付からの精算期限
+duplicate_lookup_days: 90            # 重複検出の検索範囲
+
+# ==========================================================
+# 軽量モード（Haiku のみ）起動条件
+# ==========================================================
+lite_mode_amount_threshold_jpy: 30000
+
+# ==========================================================
+# Reflection 制御
+# ==========================================================
+reflection:
+  max_iterations: 1                  # NG なら 1 回まで draft 再起動
+
+# ==========================================================
+# コスト上限（運用ガード）
+# ==========================================================
+cost:
+  max_per_request_usd: 0.05
+  max_monthly_usd: 1000

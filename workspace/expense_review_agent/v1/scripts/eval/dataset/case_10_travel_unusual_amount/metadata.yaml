@@ -1,0 +1,6 @@
+name: 出張 高額タクシー グレーゾーン（needs_review 期待）
+description: 50,000 円のタクシー、深夜・顧客対応の正当理由ありうるが要人手判断
+expected:
+  decision: needs_review
+  feedback_must_include: ["経理担当より追って"]
+tags: [edge, needs_review, travel, high_amount]

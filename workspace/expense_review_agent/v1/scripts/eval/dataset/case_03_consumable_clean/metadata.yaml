@@ -1,0 +1,7 @@
+name: 消耗品 規程内（auto_approve 期待）
+description: 文具 2,800 円、5,000 円閾値以下なので事前申請不要
+expected:
+  decision: auto_approve
+  must_pass_rules: ["receipt_required", "consumable_preapproval"]
+  feedback_must_include: ["承認"]
+tags: [typical, auto_approve, consumable]

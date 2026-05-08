@@ -1,0 +1,29 @@
+# 出荷 DB モックフィクスチャ
+# キー: 注文番号、値: 出荷状況 / 追跡番号 / 配送業者
+
+ORD-2026-12345:
+  status: shipped
+  ship_date: "2026-05-07"
+  carrier: yamato
+  tracking_no: "12345-67890"
+  tracking_url: "https://example.com/track/12345-67890"
+  estimated_delivery: "2026-05-09"
+  delay_reason: null
+
+ORD-2026-12346:
+  status: pending
+  ship_date: null
+  carrier: null
+  tracking_no: null
+  tracking_url: null
+  estimated_delivery: "2026-05-10"
+  delay_reason: "在庫待ち（再入荷見込み 5/9）"
+
+ORD-2026-12347:
+  status: delivered
+  ship_date: "2026-05-05"
+  carrier: sagawa
+  tracking_no: "98765-43210"
+  tracking_url: "https://example.com/track/98765-43210"
+  estimated_delivery: "2026-05-06"
+  delay_reason: null

@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0006",
+  "applicant_name": "高橋一郎",
+  "employee_id": "EMP-2024-004",
+  "manager_employee_id": null,
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-01",
+  "category": "training",
+  "amount_jpy": 8800,
+  "store_name": "技術書専門店 神保町",
+  "counterparty": null,
+  "participants_count": null,
+  "description": "技術書購入（Kubernetes 入門）",
+  "receipt_url": "https://attachments.example.com/receipt-006.jpg",
+  "ocr_text": "技術書専門店 神保町 2026/05/01 Kubernetes 完全ガイド ¥8,800"
+}

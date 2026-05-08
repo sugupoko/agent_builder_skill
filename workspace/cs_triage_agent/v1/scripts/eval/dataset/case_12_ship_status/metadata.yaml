@@ -1,0 +1,13 @@
+name: 配送状況 標準
+description: 注文番号 → 出荷 DB → 追跡 URL
+expected:
+  category: shipment
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: []
+  order_nos_must_include: ["ORD-2026-12345"]
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["遅延を隠す"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, shipment]

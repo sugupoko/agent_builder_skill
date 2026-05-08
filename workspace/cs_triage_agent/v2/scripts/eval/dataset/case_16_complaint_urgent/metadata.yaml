@@ -1,0 +1,13 @@
+name: クレーム 至急（梱包破損）
+description: 緊急性 + 物理的不具合
+expected:
+  category: complaint
+  urgency: high
+  complaint_smell: true
+  skus_must_include: []
+  order_nos_must_include: ["ORD-2026-12345"]
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["大したことない"]
+  apology_required: true
+  needs_supervisor: true
+tags: [critical, complaint, packaging]

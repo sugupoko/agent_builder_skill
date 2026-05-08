@@ -1,0 +1,9 @@
+name: 出張交通費 規程内（auto_approve 期待）
+description: 新幹線往復 18,500 円、上長承認あり、領収書あり、規程内
+expected:
+  decision: auto_approve
+  duplicate_suspected: false
+  must_pass_rules: ["receipt_required", "deadline_exceeded", "approval_required"]
+  feedback_must_include: ["承認"]
+  feedback_must_not_include: ["ルール違反", "絶対に承認できません", "申し訳ございません"]
+tags: [typical, auto_approve, travel]

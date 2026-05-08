@@ -1,0 +1,13 @@
+name: 代替品 納期改善要望
+description: 納期短縮目的の代替品提示
+expected:
+  category: alternative
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M8-25-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["代替なし"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, lead_time]

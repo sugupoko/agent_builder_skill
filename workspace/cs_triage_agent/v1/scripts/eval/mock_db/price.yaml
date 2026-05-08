@@ -1,0 +1,25 @@
+# 価格 DB モックフィクスチャ（標準小売価格のみ。取引先別は v1 スコープ外）
+
+SHA-M6-20-N:
+  list_price_jpy: 250
+  currency: JPY
+
+SHA-M8-25-N:
+  list_price_jpy: 320
+  currency: JPY
+
+SHA-M6-20-N2:
+  list_price_jpy: 280
+  currency: JPY
+
+BLR-25-SUS304:
+  list_price_jpy: 1200
+  currency: JPY
+
+BLR-25-SUS316:
+  list_price_jpy: 1850
+  currency: JPY
+
+PIN-D5-L20:
+  list_price_jpy: 80
+  currency: JPY

@@ -1,0 +1,36 @@
+# 5 分毎ヘルスチェック (cron/health_check.sh を実行)
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: <agent_name>-health-check
+  namespace: <namespace>
+spec:
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: health-check
+            image: <image_registry>/<agent_name>:v1.0.0
+            command: ["bash", "/app/scripts/infra/cron/health_check.sh"]
+            env:
+            - name: REDIS_HOST
+              value: redis.<namespace>.svc.cluster.local
+            - name: SLACK_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: <agent_name>-secrets
+                  key: slack_webhook_url
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: <agent_name>-secrets
+                  key: anthropic_api_key
+            resources:
+              requests: {cpu: 50m, memory: 128Mi}
+              limits: {cpu: 100m, memory: 256Mi}

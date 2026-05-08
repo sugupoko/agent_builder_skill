@@ -1,0 +1,8 @@
+name: 一人接待 規程明確違反（reject 期待）
+description: 1 人で接待単価 9,800 円、相手先空欄、業務理由曖昧
+expected:
+  decision: reject
+  rule_violations_must_include: ["single_person_hospitality_exceed"]
+  feedback_must_include: ["規程"]
+  feedback_must_not_include: ["絶対に承認できません", "ルール違反です"]
+tags: [critical, reject, single_person]

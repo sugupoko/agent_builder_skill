@@ -1,0 +1,13 @@
+name: 技術質問 互換性
+description: 後継品との互換性確認
+expected:
+  category: tech
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M6-20-N", "SHA-M6-20-N2"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["全く同じ"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, compat]

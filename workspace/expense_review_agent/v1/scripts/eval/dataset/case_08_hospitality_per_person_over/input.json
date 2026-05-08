@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0008",
+  "applicant_name": "岡田五郎",
+  "employee_id": "EMP-2024-001",
+  "manager_employee_id": "EMP-2020-010",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-03",
+  "category": "hospitality",
+  "amount_jpy": 24800,
+  "store_name": "銀座 寿司 はる",
+  "counterparty": "○○商事 営業部 田中部長 / 山田課長",
+  "participants_count": 4,
+  "description": "重要顧客との会食（新規取引先）",
+  "receipt_url": "https://attachments.example.com/receipt-008.jpg",
+  "ocr_text": "銀座 寿司 はる 2026/05/03 4名様 ¥24,800"
+}

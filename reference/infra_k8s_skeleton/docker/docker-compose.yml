@@ -1,0 +1,36 @@
+# ローカル動作確認・E2E テスト用 (本番は K8s)
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    volumes: [redis-data:/data]
+    command: redis-server --appendonly yes
+
+  webhook:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.webhook
+    ports: ["8000:8000"]
+    environment:
+      REDIS_HOST: redis
+      REDIS_QUEUE: <agent_name>:queue
+      WEBHOOK_HMAC_SECRET: localdev
+    depends_on: [redis]
+
+  agent:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    environment:
+      REDIS_HOST: redis
+      REDIS_QUEUE: <agent_name>:queue
+      AGENT_CONFIG: /app/config/<config_yaml>
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    depends_on: [redis]
+    deploy:
+      replicas: 2
+
+volumes:
+  redis-data:

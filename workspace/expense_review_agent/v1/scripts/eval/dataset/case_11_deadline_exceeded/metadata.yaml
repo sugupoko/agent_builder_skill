@@ -1,0 +1,8 @@
+name: 精算期限切れ（reject 期待）
+description: 領収書日付が 80 日以上前で精算期限 60 日超過
+expected:
+  decision: reject
+  rule_violations_must_include: ["deadline_exceeded"]
+  feedback_must_include: ["精算期限"]
+  feedback_must_not_include: ["絶対に"]
+tags: [critical, reject, deadline]

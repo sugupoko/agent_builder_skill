@@ -1,0 +1,13 @@
+name: 経理 請求書再発行
+description: 経理引き継ぎテンプレ
+expected:
+  category: billing
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: []
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["こちらで判断"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, billing]

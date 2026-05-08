@@ -1,0 +1,8 @@
+# 廃番マスタモックフィクスチャ
+# キーが存在しない型番は現役品扱い（lookup_discontinued は ok=True / is_discontinued=False を返す）
+
+SHA-M6-20-N:
+  discontinued_date: "2025-12-31"
+  successor_sku: "SHA-M6-20-N2"
+  reason: "材質変更（旧品 SS400 → 新品 SUS304）"
+  compatibility_note: "寸法・取付互換あり、耐食性向上"

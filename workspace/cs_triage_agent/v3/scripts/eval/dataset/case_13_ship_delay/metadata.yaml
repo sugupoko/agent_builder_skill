@@ -1,0 +1,13 @@
+name: 配送状況 遅延あり
+description: 遅延を隠さず理由開示
+expected:
+  category: shipment
+  urgency: high
+  complaint_smell: false  # 遅延だけでクレーム匂いを立てるかは閾値次第
+  skus_must_include: []
+  order_nos_must_include: ["ORD-2026-12346"]
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: []
+  apology_required: false  # 遅延理由は出すが先方謝罪は SV 判断
+  needs_supervisor: false
+tags: [edge, delay]

@@ -1,0 +1,8 @@
+name: 会議費 領収書なし（needs_fix 期待）
+description: 領収書添付忘れ、それ以外は規程内
+expected:
+  decision: needs_fix
+  rule_violations_must_include: ["receipt_required"]
+  feedback_must_include: ["領収書"]
+  suggested_fixes_min: 1
+tags: [typical, needs_fix, missing_receipt]

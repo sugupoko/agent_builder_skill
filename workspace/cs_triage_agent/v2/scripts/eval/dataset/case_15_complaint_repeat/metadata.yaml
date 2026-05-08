@@ -1,0 +1,13 @@
+name: クレーム リピート（何度目・前回も）
+description: 強い不満キーワードを複数含む
+expected:
+  category: complaint
+  urgency: high
+  complaint_smell: true
+  skus_must_include: []
+  order_nos_must_include: ["ORD-2026-12346"]
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["問題ありません"]
+  apology_required: true
+  needs_supervisor: true
+tags: [critical, complaint]

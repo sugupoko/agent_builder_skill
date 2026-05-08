@@ -1,0 +1,114 @@
+name: CS Triage Agent CI (dry-run)
+
+on:
+  push:
+    paths:
+      - 'workspace/cs_triage_agent/v3/**'
+  pull_request:
+    paths:
+      - 'workspace/cs_triage_agent/v3/**'
+
+jobs:
+  dry-run-eval:
+    name: Dry-run eval (no API cost)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workspace/cs_triage_agent/v3/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r ../../../../requirements.txt
+
+      - name: Compile all Python files
+        run: |
+          python -m py_compile agent.py
+          python -m py_compile src/state.py src/config.py src/cost.py src/logger.py
+          python -m py_compile src/pii_mask.py src/db_client.py
+          python -m py_compile src/preprocess.py src/extract.py src/classify.py
+          python -m py_compile src/retrieve.py src/draft.py src/reflect.py src/assemble.py
+          python -m py_compile dispatch_salesforce.py dispatch_slack.py monitor.py webhook_receiver.py
+
+      - name: Print graph (smoke test)
+        run: |
+          python agent.py --config config/cs_triage.yaml --print-graph > /tmp/graph.mmd
+          test -s /tmp/graph.mmd
+
+      - name: Run dry-run eval (22 cases, $0 cost)
+        run: |
+          python eval/run_eval.py
+
+      - name: Assert quality gates from latest dry-run result
+        run: |
+          python - <<'PY'
+          import glob, json, sys
+          dirs = sorted(glob.glob("eval/results/run_*_dry"))
+          assert dirs, "no dry-run results found"
+          d = json.load(open(f"{dirs[-1]}/result.json", encoding="utf-8"))
+          s = d["summary"]
+          # CI 失敗条件（v3 で v2 round-2 ヒアリング合意済の絶対ライン）
+          fails = []
+          if s["critical_misses"] != 0:
+              fails.append(f"critical_misses={s['critical_misses']} (要 0)")
+          if s["sku_recall_avg"] < 0.99:
+              fails.append(f"sku_recall_avg={s['sku_recall_avg']:.3f} (要 ≥ 0.99)")
+          if s["complaint_recall_overall"] < 0.95:
+              fails.append(f"complaint_recall_overall={s['complaint_recall_overall']:.3f} (要 ≥ 0.95)")
+          if s["body_must_include_rate_avg"] < 0.99:
+              fails.append(f"body_must_include_rate_avg={s['body_must_include_rate_avg']:.3f} (要 ≥ 0.99)")
+          if s["body_must_not_violations_total"] > 0:
+              fails.append(f"body_must_not_violations_total={s['body_must_not_violations_total']} (要 0)")
+          if fails:
+              print("CI quality gates FAILED:")
+              for f in fails:
+                  print(f"  - {f}")
+              sys.exit(1)
+          print("CI quality gates passed:")
+          print(json.dumps(s, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload dry-run results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dry-run-results
+          path: workspace/cs_triage_agent/v3/scripts/eval/results/run_*_dry/
+
+  # PR ラベル `eval-real` が付いた場合のみ、5 件の代表ケースで実 LLM 評価
+  pr-real-spot:
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'eval-real')
+    name: PR real LLM (5 critical cases)
+    needs: dry-run-eval
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workspace/cs_triage_agent/v3/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r ../../../../requirements.txt
+      - name: Run real eval on 5 critical cases
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python eval/run_eval.py --real --only \
+            case_15_complaint_repeat \
+            case_16_complaint_urgent \
+            case_21_edge_cad \
+            case_05_tech_material_diff \
+            case_09_alt_discontinued
+      - name: Assert no critical misses
+        run: |
+          python - <<'PY'
+          import glob, json, sys
+          d = json.load(open(sorted(glob.glob("eval/results/run_*_real"))[-1] + "/result.json", encoding="utf-8"))
+          assert d["summary"]["critical_misses"] == 0, "critical miss in PR real spot"
+          PY

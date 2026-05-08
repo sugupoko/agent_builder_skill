@@ -1,0 +1,13 @@
+name: 在庫照会 複数型番（5 型番）
+description: 一括問い合わせ。型番抽出の網羅性を試す
+expected:
+  category: inventory
+  urgency: high  # v3: 「急ぎ」「来週月曜の出図に間に合わせたい」で high keyword 該当
+  complaint_smell: false
+  skus_must_include: ["SHA-M6-20-N", "SHA-M8-25-N", "BLR-25-SUS304", "BLR-25-SUS316", "PIN-D5-L20"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["工場の都合", "うちのシステム"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, multi_sku, edge_count]

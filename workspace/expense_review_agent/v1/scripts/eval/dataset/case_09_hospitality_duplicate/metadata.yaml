@@ -1,0 +1,8 @@
+name: 接待 重複疑い（needs_review 期待）
+description: 過去 90 日に同店名・同金額（CLAIM-2026-04-1234）あり、重複申請の可能性
+expected:
+  decision: needs_review
+  duplicate_suspected: true
+  feedback_must_include: ["経理担当より追って"]
+  feedback_must_not_include: ["絶対に"]
+tags: [edge, needs_review, duplicate]

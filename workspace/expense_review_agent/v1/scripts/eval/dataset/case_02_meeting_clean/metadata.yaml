@@ -1,0 +1,9 @@
+name: 会議費 規程内（auto_approve 期待）
+description: 1 人 1,200 円で上限 1,500 円以内、3 名の社内会議
+expected:
+  decision: auto_approve
+  duplicate_suspected: false
+  must_pass_rules: ["receipt_required", "meeting_per_person"]
+  feedback_must_include: ["承認"]
+  feedback_must_not_include: ["違反", "申し訳"]
+tags: [typical, auto_approve, meeting]

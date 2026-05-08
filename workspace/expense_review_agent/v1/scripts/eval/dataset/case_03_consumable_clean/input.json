@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0003",
+  "applicant_name": "佐々木健",
+  "employee_id": "EMP-2024-004",
+  "manager_employee_id": "EMP-2024-003",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-05",
+  "category": "consumable",
+  "amount_jpy": 2800,
+  "store_name": "アスクル",
+  "counterparty": null,
+  "participants_count": null,
+  "description": "事務用文具（コピー用紙・ボールペン）",
+  "receipt_url": "https://attachments.example.com/receipt-003.jpg",
+  "ocr_text": "アスクル 法人窓口 2026/05/05 コピー用紙 A4 ボールペン 黒10本 ¥2,800"
+}

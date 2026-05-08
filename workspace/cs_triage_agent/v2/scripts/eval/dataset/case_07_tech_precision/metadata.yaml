@@ -1,0 +1,13 @@
+name: 技術質問 寸法精度
+description: 公差を聞かれた場合の応対
+expected:
+  category: tech
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["PIN-D5-L20"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["完全に保証"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, precision]

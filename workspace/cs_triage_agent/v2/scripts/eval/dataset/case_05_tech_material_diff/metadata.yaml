@@ -1,0 +1,14 @@
+name: 技術質問 材質比較（SUS304 vs SUS316）
+description: 単独回答せず使用環境を逆質問するべきケース
+expected:
+  category: tech
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["BLR-25-SUS304", "BLR-25-SUS316"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["どちらでも同じ"]
+  apology_required: false
+  needs_supervisor: false
+  missing_info_should_include_any: ["使用温度", "薬品", "コスト", "環境"]
+tags: [typical, reverse_question]

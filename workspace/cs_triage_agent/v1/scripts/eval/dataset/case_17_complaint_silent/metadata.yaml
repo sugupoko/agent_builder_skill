@@ -1,0 +1,13 @@
+name: クレーム 暗黙（仕様違い）
+description: 強いキーワードはなくても「想定と違う」「前回も」で兆候検出
+expected:
+  category: complaint
+  urgency: normal
+  complaint_smell: true
+  skus_must_include: ["SHA-M6-20-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["お気のせいです"]
+  apology_required: true
+  needs_supervisor: true
+tags: [edge, complaint, subtle]

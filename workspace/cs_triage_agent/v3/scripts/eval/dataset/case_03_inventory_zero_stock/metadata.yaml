@@ -1,0 +1,13 @@
+name: 在庫照会（在庫ゼロ品）
+description: 在庫切れ品の納期回答ができるか
+expected:
+  category: inventory
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M8-25-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["在庫はあります"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, zero_stock]

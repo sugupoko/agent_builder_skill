@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0010",
+  "applicant_name": "佐藤六郎",
+  "employee_id": "EMP-2024-001",
+  "manager_employee_id": "EMP-2020-010",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-05",
+  "category": "travel",
+  "amount_jpy": 50000,
+  "store_name": "タクシー 個人事業主",
+  "counterparty": null,
+  "participants_count": null,
+  "description": "深夜タクシー（顧客対応終電後）",
+  "receipt_url": "https://attachments.example.com/receipt-010.jpg",
+  "ocr_text": "個人タクシー 領収書 2026/05/05 23:30 ¥50,000"
+}

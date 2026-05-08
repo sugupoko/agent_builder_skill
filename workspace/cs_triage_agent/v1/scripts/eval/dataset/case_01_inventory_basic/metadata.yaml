@@ -1,0 +1,14 @@
+name: 在庫照会 単純（2 型番）
+description: PII（氏名・電話・メール）と複数型番を含む典型的な在庫照会
+expected:
+  category: inventory
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M6-20-N", "SHA-M8-25-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["工場の都合", "うちのシステム", "上が言うには"]
+  apology_required: false
+  needs_supervisor: false
+  pii_count_min: 3
+tags: [typical, multi_sku]

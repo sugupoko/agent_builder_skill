@@ -1,0 +1,13 @@
+name: 経理 金額照合
+description: 推測で答えず経理担当へ引き継ぎ
+expected:
+  category: billing
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: []
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: ["金額は合っております"]
+  apology_required: false
+  needs_supervisor: false
+tags: [typical, billing, amount]

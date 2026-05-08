@@ -1,0 +1,14 @@
+name: エッジ CAD 図面提供
+description: spec の主要 6 カテゴリ外。CAD URL 返答パスの検証
+expected:
+  category: cad
+  urgency: normal
+  complaint_smell: false
+  skus_must_include: ["SHA-M6-20-N"]
+  order_nos_must_include: []
+  body_must_include: ["お世話になっております。", "ご確認のほどよろしくお願いいたします。"]
+  body_must_not_include: []
+  apology_required: false
+  needs_supervisor: false
+tags: [edge, cad]
+edge_case: true   # 集計時に注記

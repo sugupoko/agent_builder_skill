@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0002",
+  "applicant_name": "鈴木花子",
+  "employee_id": "EMP-2024-003",
+  "manager_employee_id": "EMP-2020-020",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-06",
+  "category": "meeting",
+  "amount_jpy": 3600,
+  "store_name": "スターバックス 渋谷店",
+  "counterparty": null,
+  "participants_count": 3,
+  "description": "プロジェクト定例会議",
+  "receipt_url": "https://attachments.example.com/receipt-002.jpg",
+  "ocr_text": "スターバックスコーヒー 渋谷店 2026/05/06 ¥3,600"
+}

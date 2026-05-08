@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0005",
+  "applicant_name": "中村三郎",
+  "employee_id": "EMP-2024-003",
+  "manager_employee_id": "EMP-2020-020",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-02",
+  "category": "consumable",
+  "amount_jpy": 12800,
+  "store_name": "ビックカメラ 新宿店",
+  "counterparty": null,
+  "participants_count": null,
+  "description": "外部モニター（リモートワーク用）",
+  "receipt_url": "https://attachments.example.com/receipt-005.jpg",
+  "ocr_text": "ビックカメラ 新宿西口店 2026/05/02 27インチモニター ¥12,800"
+}

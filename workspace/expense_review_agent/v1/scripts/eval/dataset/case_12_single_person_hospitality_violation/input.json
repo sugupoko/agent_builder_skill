@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0012",
+  "applicant_name": "藤田八郎",
+  "employee_id": "EMP-2024-001",
+  "manager_employee_id": "EMP-2020-010",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-06",
+  "category": "hospitality",
+  "amount_jpy": 9800,
+  "store_name": "焼肉 銀座 一番",
+  "counterparty": null,
+  "participants_count": 1,
+  "description": "業務必要のため",
+  "receipt_url": "https://attachments.example.com/receipt-012.jpg",
+  "ocr_text": "焼肉 銀座 一番 2026/05/06 ¥9,800 1名"
+}

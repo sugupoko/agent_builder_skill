@@ -1,0 +1,16 @@
+{
+  "application_id": "RKR-2026-05-0001",
+  "applicant_name": "田中太郎",
+  "employee_id": "EMP-2024-002",
+  "manager_employee_id": "EMP-2024-001",
+  "submitted_date": "2026-05-08",
+  "receipt_date": "2026-05-07",
+  "category": "travel",
+  "amount_jpy": 18500,
+  "store_name": "東京駅 新幹線みどりの窓口",
+  "counterparty": null,
+  "participants_count": null,
+  "description": "東京-大阪出張往復新幹線",
+  "receipt_url": "https://attachments.example.com/receipt-001.jpg",
+  "ocr_text": "JR東海 東京駅 みどりの窓口 のぞみ往復 18,500 円 2026/05/07"
+}

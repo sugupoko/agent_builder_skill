@@ -1,0 +1,7 @@
+name: 研修費 上長承認なし（needs_fix 期待）
+description: 技術書 8,800 円、上長承認記録なし
+expected:
+  decision: needs_fix
+  rule_violations_must_include: ["training_manager_approval_required"]
+  feedback_must_include: ["上長"]   # LLM は「上長の承認」「上長より承認」等の表記揺れがあるため緩和
+tags: [typical, needs_fix, training]
